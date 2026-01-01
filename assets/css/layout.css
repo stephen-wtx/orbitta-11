@@ -1,0 +1,148 @@
+/* =========================
+   VARIÁVEIS
+========================= */
+:root {
+  --preto: #0e0e0e;
+  --cinza-escuro: #1a1a1a;
+  --cinza: #2a2a2a;
+  --cinza-claro: #b5b5b5;
+  --branco: #ffffff;
+}
+
+/* =========================
+   RESET / BASE
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+body {
+  background: var(--branco);
+  color: var(--branco);
+  min-height: 100vh;
+  padding: 40px;
+}
+
+/* =========================
+   HEADER / LOGO
+========================= */
+header {
+  margin-bottom: 40px;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo img {
+  width: 200px;
+  display: block;
+}
+
+#slogan {
+  margin-top: 0.5rem;
+  font-family: 'Schoolbell', cursive;
+  font-size: 1rem;
+  font-style: italic;
+  color: #555;
+}
+
+/* =========================
+   DASHBOARD / GRID
+========================= */
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+/* =========================
+   CARD
+========================= */
+.card {
+  position: relative;
+  overflow: hidden;
+
+  background: var(--cinza);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 24px;
+
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+/* efeito de brilho */
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.08),
+    transparent
+  );
+
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.card:hover::after {
+  opacity: 1;
+}
+
+.card h2 {
+  margin-bottom: 16px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--cinza-claro);
+}
+
+/* =========================
+   LINKS
+========================= */
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.links a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 10px 14px;
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--branco);
+  text-decoration: none;
+  font-size: 14px;
+  cursor: pointer;
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.links a:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-4px);
+}
+
+/* ícone do link */
+.links a img {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}

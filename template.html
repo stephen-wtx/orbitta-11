@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ORBITTA 11 — Dashboard</title>
+  <style>
+    :root {
+      --preto: #0e0e0e;
+      --cinza-escuro: #1a1a1a;
+      --cinza: #2a2a2a;
+      --cinza-claro: #b5b5b5;
+      --branco: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(145deg, var(--preto), var(--cinza-escuro));
+      color: var(--branco);
+      min-height: 100vh;
+      padding: 40px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    header h1 {
+      font-size: 28px;
+      letter-spacing: 4px;
+      font-weight: 600;
+    }
+
+    header span {
+      color: var(--cinza-claro);
+      font-size: 14px;
+    }
+
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 24px;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.08), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .card:hover::after {
+      opacity: 1;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .card h2 {
+      font-size: 16px;
+      margin-bottom: 16px;
+      font-weight: 500;
+      color: var(--cinza-claro);
+    }
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .links a {
+      text-decoration: none;
+      color: var(--branco);
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      transition: background 0.25s ease, transform 0.2s ease;
+      font-size: 14px;
+    }
+
+    .links a:hover {
+      background: rgba(255, 255, 255, 0.12);
+      transform: translateX(4px);
+    }
+
+    footer {
+      margin-top: 60px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--cinza-claro);
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>ORBITTA 11</h1>
+    <span>Dashboard de recursos úteis</span>
+  </header>
+
+  <section class="dashboard">
+
+    <div class="card">
+      <h2>🎨 Imagens & Inspiração</h2>
+      <div class="links">
+        <a href="https://www.pinterest.com" target="_blank">Pinterest</a>
+        <a href="https://unsplash.com" target="_blank">Unsplash</a>
+        <a href="https://www.behance.net" target="_blank">Behance</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>🧠 Design & UI/UX</h2>
+      <div class="links">
+        <a href="https://dribbble.com" target="_blank">Dribbble</a>
+        <a href="https://www.awwwards.com" target="_blank">Awwwards</a>
+        <a href="https://mobbin.com" target="_blank">Mobbin</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>⚙️ Ferramentas</h2>
+      <div class="links">
+        <a href="https://figma.com" target="_blank">Figma</a>
+        <a href="https://chat.openai.com" target="_blank">ChatGPT</a>
+        <a href="https://notion.so" target="_blank">Notion</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>📚 Desenvolvimento</h2>
+      <div class="links">
+        <a href="https://github.com" target="_blank">GitHub</a>
+        <a href="https://stackoverflow.com" target="_blank">Stack Overflow</a>
+        <a href="https://developer.mozilla.org" target="_blank">MDN Web Docs</a>
+      </div>
+    </div>
+
+  </section>
+
+  <footer>
+    © 2025 ORBITTA 11 — Minimal • Futurista • Funcional
+  </footer>
+
+</body>
+</html>
