@@ -4,91 +4,76 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Orbitta 11 - Hub de ferramentas online</title>
+
+  <link rel="stylesheet" href="assets/css/modal.css">
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/componentes.css">
   <link rel="stylesheet" href="assets/css/layout.css">
-
 </head>
-<div class="modal-overlay" id="modal">
-  <div class="modal">
-    <button class="modal-close" id="modalClose">×</button>
-
-    <h3 id="modalTitulo">Ferramentas</h3>
-
-    <div class="modal-links" id="modalLinks">
-    </div>
-  </div>
-</div>
 
 <body>
 
-  <header>
-    <figure class="logo">
-      <img
-        src="https://i.ibb.co/fdTLPPz6/IMG-7110.png"
-        alt="Orbitta 11 - logo">
-      <figcaption id="slogan">
-        Ferramentas centralizadas, num só lugar.
-      </figcaption>
-    </figure>
-  </header>
+<!-- MODAL -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <button class="modal-close" id="modalClose">×</button>
+    <h3 id="modalTitulo">Ferramentas</h3>
+    <div class="modal-links" id="modalLinks"></div>
+  </div>
+</div>
 
-  <main>
+<header>
+  <figure class="logo">
+    <img
+      src="https://i.ibb.co/fdTLPPz6/IMG-7110.png"
+      alt="Orbitta 11 - logo">
+    <figcaption id="slogan">
+      Ferramentas centralizadas, num só lugar.
+    </figcaption>
+  </figure>
+</header>
 
-    <section class="dashboard" id="dashboard">
-        <div class="card">
-            <h2>Imagens</h2>
+<main>
+  <section class="dashboard" id="dashboard">
 
-            <div class="links">
-                <a href="#" data-acao="remover-fundo">
-                <span>Remover fundo</span>
-                </a>
+    <!-- IMAGENS -->
+    <div class="card imagem">
+      <h2>Imagens</h2>
+      <div class="links">
+        <a href="#" data-acao="remover-fundo"><span>Remover fundo</span></a>
+        <a href="#" data-acao="melhorar-qualidade"><span>Melhorar qualidade</span></a>
+        <a href="#" data-acao="converter-formatos"><span>Converter formatos</span></a>
+        <a href="#" data-acao="comprimir-imagens"><span>Comprimir imagens</span></a>
+      </div>
+    </div>
 
-                <a href="#" data-acao="melhorar-qualidade">
-                <span>Melhorar qualidade</span>
-                </a>
+    <!-- VÍDEOS -->
+    <div class="card video">
+      <h2>Vídeos</h2>
+      <div class="links">
+        <a href="#" data-acao="comprimir-video"><span>Comprimir vídeo</span></a>
+        <a href="#" data-acao="converter-formato-video"><span>Conversão de formato</span></a>
+        <a href="#" data-acao="editar-video"><span>Editar vídeo</span></a>
+        <a href="#" data-acao="gerar-legendas"><span>Gerar legendas</span></a>
+      </div>
+    </div>
 
-                <a href="#" data-acao="converter-formatos">
-                <span>Converter formatos</span>
-                </a>
+    <!-- ÁUDIO -->
+    <div class="card audio">
+      <h2>Áudio & Voz</h2>
+      <div class="links">
+        <a href="#" data-acao="melhorar-audio"><span>Melhorar áudio</span></a>
+        <a href="#" data-acao="converter-formato-audio"><span>Converter formato de áudio</span></a>
+        <a href="#" data-acao="texto-voz"><span>Texto → Voz</span></a>
+      </div>
+    </div>
 
-                <a href="#" data-acao="comprimir-imagens">
-                <span>Comprimir imagens</span>
-                </a>
-            </div>
-            </div>
+  </section>
+</main>
 
-            <div class="card">
-                <h2>Vídeos</h2>
-              <div class="links">
-                <a href="#" data-acao="comprimir-video">
-                  <span>Comprimir vídeo</span>
-                </a>
+<script src="assets/js/modal.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
 
-                <a href="#" data-acao="converter-video">
-                  <span>Converter formatos</span>
-                </a>
-
-                <a href="#" data-acao="editar-video">
-                  <span>Editar vídeo</span>
-                </a>
-
-                <a href="#" data-acao="gerar-legendas">
-                  <span>Gerar legendas</span>
-                </a>
-              </div>
-
-            </div>
-
-    </section>
-
-  </main>
-
-  <footer>
-    
-  </footer>
-
-  <script src="assets/js/data.js"></script>
-  <script src="assets/js/app.js"></script>
 </body>
 </html>
