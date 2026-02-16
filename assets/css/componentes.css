@@ -13,8 +13,37 @@
 }
 
 /* MODAL */
+
+
+/* ===== MODO CLARO ===== */
+
+body:not(.dark) .modal {
+  background: rgba(230, 230, 230, 0.871);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.06);
+}     
+
+  body:not(.dark) .modal-overlay {
+  background: rgba(15, 15, 15, 0.18);
+  backdrop-filter: blur(8px);
+}   
+
+  body:not(.dark) .modal-links a {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+body:not(.dark) .modal-links a:hover {
+  background: rgba(255, 255, 255, 0.9);
+  transform: scale(1.05);
+}
+
+/* ===== MODO DARK ===== */
+
 .modal {
-  background: var(--cinza);
+  background: #2a2a2a;
   border-radius: 20px;
   padding: 28px;
   width: 100%;
@@ -45,15 +74,27 @@
   top: 16px;
   right: 16px;
 
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   background: none;
   border: none;
-  color: var(--cinza-claro);
+  color: var(--texto);
   font-size: 22px;
   cursor: pointer;
+  transform: scale(1);
+  transition: transform 0.15s ease, background 0.2s ease, color 0.2s ease;
 }
 
 .modal-close:hover {
-  color: var(--branco);
+  background: rgb(218, 218, 218);
+  color: #2a2a2a;
+  border-radius: 100%;
+  transform: scale(1.05);
 }
 
 /* TÍTULO */
@@ -61,7 +102,7 @@
   margin-bottom: 20px;
   font-size: 16px;
   font-weight: 500;
-  color: var(--cinza-claro);
+  color: var(--texto);
 }
 
 /* LINKS INTERNOS */
@@ -81,7 +122,7 @@
 
   background: rgba(255, 255, 255, 0.06);
   text-decoration: none;
-  color: var(--branco);
+  color: var(--texto);
   font-size: 14px;
 
   transition: background 0.3s ease, transform 0.3s ease;

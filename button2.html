@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glass iOS Toggle</title>
+
+<style>
+:root { /* Define variáveis globais acessíveis em todo o documento */
+    --bg: linear-gradient(135deg, #f5f7fa, #e4ecf7); /* Variável para o fundo no modo claro */
+    --texto: #111; /* Variável para a cor do texto no modo claro */
+}
+
+.dark { /* Classe que ativa o modo escuro */
+    --bg: #1a1a1a; /* Substitui a variável de fundo quando dark está ativo */
+    --texto: #fff; /* Substitui a variável da cor do texto no modo escuro */
+}
+
+body {
+    margin: 0; /* Remove margem padrão do navegador */
+    height: 100vh; /* Faz o body ocupar 100% da altura da tela */
+    display: flex; /* Ativa Flexbox */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    background: var(--bg); /* Usa a variável dinâmica de fundo */
+    color: var(--texto); /* Usa a variável dinâmica da cor do texto */
+    transition: background 0.4s ease; /* Anima suavemente a troca de fundo */
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif; /* Fonte moderna estilo sistema */
+}
+
+/* Container */
+.toggle-container {
+    position: relative; /* Permite posicionamento absoluto interno se necessário */
+}
+
+/* Hide checkbox */
+.toggle-container input {
+    display: none; /* Esconde o checkbox real (usamos apenas para lógica) */
+}
+
+/* Glass Slider */
+.slider {
+    width: 74px; /* Largura do toggle */
+    height: 38px; /* Altura do toggle */
+    border-radius: 50px; /* Deixa formato oval */
+    position: relative; /* Necessário para posicionar o pseudo-elemento interno */
+    cursor: pointer; /* Mostra cursor clicável */
+
+    backdrop-filter: blur(12px); /* Aplica efeito vidro (blur no fundo atrás) */
+    -webkit-backdrop-filter: blur(12px); /* Compatibilidade com Safari */
+
+    background: rgba(255, 255, 255, 0.25); /* Fundo semi-transparente (glass effect) */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Borda suave translúcida */
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15); /* Sombra suave para profundidade */
+    transition: all 0.4s ease; /* Anima qualquer alteração visual */
+}
+
+/* Dark glass */
+.dark .slider {
+    background: rgba(255, 255, 255, 0.1); /* Fundo mais discreto no modo escuro */
+    border: 1px solid rgba(255, 255, 255, 0.15); /* Borda mais subtil no dark */
+}
+
+/* Circle */
+.slider::before {
+    content: ""; /* Necessário para gerar o pseudo-elemento */
+    position: absolute; /* Permite posicionamento dentro do slider */
+    width: 32px; /* Largura da bolinha */
+    height: 32px; /* Altura da bolinha */
+    left: 3px; /* Distância da esquerda */
+    top: 3px; /* Distância do topo */
+    border-radius: 50%; /* Forma circular */
+
+    backdrop-filter: blur(8px); /* Blur interno da bolinha */
+    -webkit-backdrop-filter: blur(8px); /* Compatibilidade Safari */
+
+    background: rgba(255, 255, 255, 0.6); /* Fundo translúcido da bolinha */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* Sombra para efeito flutuante */
+
+    transition: transform 0.4s cubic-bezier(.4,0,.2,1); /* Animação suave estilo iOS */
+}
+
+/* Move circle */
+input:checked + .slider::before {
+    transform: translateX(36px); /* Move a bolinha para a direita quando ativo */
+}
+
+/* Icons */
+.icon {
+    position: absolute; /* Permite posicionar dentro do slider */
+    top: 50%; /* Centraliza verticalmente */
+    transform: translateY(-50%); /* Ajuste fino da centralização vertical */
+    font-size: 16px; /* Tamanho dos ícones */
+    transition: opacity 0.3s ease; /* Anima mudança de opacidade */
+}
+
+.sun {
+    left: 10px; /* Posiciona o ícone do sol à esquerda */
+}
+
+.moon {
+    right: 10px; /* Posiciona o ícone da lua à direita */
+    opacity: 0.6; /* Lua começa menos visível no modo claro */
+}
+
+input:checked + .slider .sun {
+    opacity: 0.6; /* Sol fica menos visível quando modo escuro ativa */
+}
+
+input:checked + .slider .moon {
+    opacity: 1; /* Lua fica totalmente visível quando ativo */
+}
+
+</style>
+</head>
+
+<body>
+
+<label class="toggle-container">
+    <input type="checkbox" id="toggle-tema">
+    <div class="slider">
+        <span class="icon sun">☀</span>
+        <span class="icon moon">🌙</span>
+    </div>
+</label>
+
+<script>
+const toggle = document.getElementById("toggle-tema");
+
+// Carregar preferência
+if (localStorage.getItem("tema") === "dark") {
+    document.body.classList.add("dark");
+    toggle.checked = true;
+}
+
+toggle.addEventListener("change", () => {
+    if (toggle.checked) {
+        document.body.classList.add("dark");
+        localStorage.setItem("tema", "dark");
+    } else {
+        document.body.classList.remove("dark");
+        localStorage.setItem("tema", "light");
+    }
+});
+</script>
+
+</body>
+</html>

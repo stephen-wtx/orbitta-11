@@ -55,3 +55,4 @@ document.addEventListener("click", (e) => {
   // Aplica no modal
   document.querySelector(".modal").style.setProperty("--cor-principal", cor);
 });
+

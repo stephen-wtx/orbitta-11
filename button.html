@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Light / Dark Toggle</title>
+
+<style>
+:root {
+    --bg: #ffffff;
+    --texto: #111111;
+    --botao-bg: #f3f3f3;
+}
+
+.dark {
+    --bg: #0f0f0f;
+    --texto: #ffffff;
+    --botao-bg: #1f1f1f;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+    color: var(--texto);
+    transition: background 0.3s ease, color 0.3s ease;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.botao-tema {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: none;
+    background: var(--botao-bg);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.botao-tema:hover {
+    transform: scale(1.08);
+}
+
+.botao-tema span {
+    position: absolute;
+    font-size: 20px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.icone-lua {
+    opacity: 0;
+    transform: rotate(-90deg);
+}
+
+.dark .icone-sol {
+    opacity: 0;
+    transform: rotate(90deg);
+}
+
+.dark .icone-lua {
+    opacity: 1;
+    transform: rotate(0);
+}
+</style>
+</head>
+
+<body>
+
+<button id="botao-tema" class="botao-tema" aria-label="Alternar tema">
+    <span class="icone-sol">☀</span>
+    <span class="icone-lua">🌙</span>
+</button>
+
+<script>
+const botaoTema = document.getElementById("botao-tema");
+
+// Verifica preferência salva
+if (localStorage.getItem("tema") === "dark") {
+    document.body.classList.add("dark");
+}
+
+botaoTema.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+
+    if (document.body.classList.contains("dark")) {
+        localStorage.setItem("tema", "dark");
+    } else {
+        localStorage.setItem("tema", "light");
+    }
+});
+</script>
+
+</body>
+</html>
