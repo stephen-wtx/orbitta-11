@@ -33,7 +33,6 @@ const categorias = [
 
 /* =========================================================
    FERRAMENTAS — IMAGENS
-   (usado para organização e expansão futura)
    ========================================================= */
 
 const ferramentasImagem = {
@@ -59,6 +58,22 @@ const ferramentasImagem = {
     { nome: "TinyPNG", url: "https://tinypng.com" },
     { nome: "CompressJPEG", url: "https://compressjpeg.com" },
     { nome: "Compressor.io", url: "https://compressor.io" }
+  ],
+
+  "remover-metadados": [
+    { nome: "Pics io", url: "https://pics.io/remove-metadata-from-photo" },
+    { nome: "ExifClear", url: "https://exifclear.com/" },
+    { nome: "MetaRemover", url: "https://www.metaremover.com" },
+    { nome: "ImgWash", url: "https://www.imgwash.com" },
+    { nome: "ExifX", url: "https://www.exifx.com" }
+  ],
+
+  "banco-imagens-gratis": [
+    { nome: "Unsplash", url: "https://unsplash.com" },
+    { nome: "Pexels", url: "https://www.pexels.com" },
+    { nome: "Pixabay", url: "https://pixabay.com" },
+    { nome: "Burst", url: "https://burst.shopify.com" },
+    { nome: "FreeImages", url: "https://www.freeimages.com" }
   ]
 };
 
@@ -131,6 +146,144 @@ const ferramentasAudio = {
 
 
 /* =========================================================
+   FERRAMENTAS — IA & PRODUTIVIDADE
+   ========================================================= */
+
+   const ferramentasIA = {
+    "texto-conteudo": [
+      { nome: "ChatGPT", url: "https://chat.openai.com" },
+      { nome: "Perplexity", url: "https://www.perplexity.ai" },
+      { nome: "Claude", url: "https://claude.ai" },
+      { nome: "Deepseek", url: "https://www.deepseek.com" },
+      { nome: "Copilot", url: "https://copilot.microsoft.com" }
+    ],
+
+    "design-apresentacao": [
+      { nome: "Gamma", url: "https://gamma.app" },
+      { nome: "Beautiful.ai", url: "https://www.beautiful.ai" },
+      { nome: "Canva", url: "https://www.canva.com" },
+      { nome: "Pitch", url: "https://pitch.com" },
+      { nome: "Visme", url: "https://www.visme.co" },
+      { nome: "Adobe Express", url: "https://www.adobe.com/express/create/presentation" },
+      { nome: "Slidesgo", url: "https://slidesgo.com" }
+    ],
+
+    "gerar-imagem": [
+      { nome: "Stable Diffusion", url: "https://stablediffusionweb.com" },
+      { nome: "Craiyon", url: "https://craiyon.com" },
+      { nome: "Reve", url: "https://app.reve.com" },
+      { nome: "Nano Banana (Gemeni)", url: "https://gemini.google.com" },
+      { nome: "BYLO AI", url: "https://bylo.ai" }
+
+    ]
+   };
+
+
+/* =========================================================
+   FERRAMENTAS — DOCUMENTOS
+   ========================================================= */
+
+
+   const ferramentasDocumentos = {
+  "converter-para-pdf": [
+    { nome: "iLovePDF", url: "https://www.ilovepdf.com" },
+    { nome: "Smallpdf", url: "https://smallpdf.com" },
+    { nome: "PDF24 Tools", url: "https://tools.pdf24.org" }
+  ],
+
+  "converter-de-pdf": [
+    { nome: "CloudConvert", url: "https://cloudconvert.com" },
+    { nome: "FreeConvert", url: "https://freeconvert.com" },
+    { nome: "Adobe Acrobat Online", url: "https://www.adobe.com/acrobat/online" }
+  ],
+
+  "comprimir-pdf": [
+    { nome: "iLovePDF", url: "https://www.ilovepdf.com/compress_pdf" },
+    { nome: "Smallpdf", url: "https://smallpdf.com/compress-pdf" },
+    { nome: "PDF Compressor", url: "https://www.freepdfconvert.com/compress-pdf" }
+  ],
+
+  "editar-pdf": [
+    { nome: "Sejda", url: "https://www.sejda.com" },
+    { nome: "PDFescape", url: "https://www.pdfescape.com" },
+    { nome: "PDF24 Editor", url: "https://tools.pdf24.org/en/edit-pdf" }
+  ],
+
+  "assinar-pdf": [
+    { nome: "DocuSign", url: "https://www.docusign.com" },
+    { nome: "Smallpdf eSign", url: "https://smallpdf.com/sign-pdf" },
+    { nome: "Adobe Acrobat Sign", url: "https://www.adobe.com/sign.html" }
+  ],
+
+  "proteger-pdf": [
+    { nome: "iLovePDF Protect", url: "https://www.ilovepdf.com/protect-pdf" },
+    { nome: "Smallpdf Protect", url: "https://smallpdf.com/protect-pdf" },
+    { nome: "PDF2Go", url: "https://www.pdf2go.com/protect-pdf" }
+  ]
+};
+
+
+/* =========================================================
+   FERRAMENTAS — ARMAZENAMENTO
+   ========================================================= */
+
+   const ferramentasArmazenamento = [
+  {
+    titulo: "Armazenamento em nuvem",
+    itens: [
+      {
+        nome: "Google Drive",
+        url: "https://drive.google.com",
+        dominio: "drive.google.com"
+      },
+      {
+        nome: "OneDrive",
+        url: "https://onedrive.live.com",
+        dominio: "onedrive.live.com"
+      },
+      {
+        nome: "Proton Drive",
+        url: "https://proton.me/drive",
+        dominio: "proton.me/drive"
+      },
+      {
+        nome: "Mega",
+        url: "https://mega.nz",
+        dominio: "mega.nz"
+      },
+
+      {
+        nome: "Dropbox",
+        url: "https://www.dropbox.com",
+        dominio: "dropbox.com"
+      }
+    ]
+  }
+];
+
+
+/* =========================================================
+   FERRAMENTAS — ENTRETENIMENTO
+   ========================================================= */
+
+   const ferramentasEntretenimento = {
+  "filmes-series": [
+    { nome: "Overflix", url: "https://www.overflixtv.forum" },
+    { nome: "Obaflix", url: "https://obaflix.cloud/" },
+    { nome: "MyFlixer", url: "https://www.myflixer.to" },
+    { nome: "123Movies", url: "https://123moviesgo.to" },
+    { nome: "Velora tv", url: "https://www.veloratv.ru" }
+  ],
+
+  "animes": [
+    { nome: "MyAnimeList", url: "https://myanimelist.net" },
+    { nome: "AniList", url: "https://anilist.co" },
+    { nome: "Kitsu", url: "https://kitsu.io" }
+  ]
+};
+
+
+/* =========================================================
    ELEMENTOS DO MODAL (Display)
    ========================================================= */
 
@@ -165,6 +318,16 @@ const dados = {
   "comprimir-imagens": {
     titulo: "Comprimir imagens",
     ferramentas: ferramentasImagem["comprimir-imagens"]
+  },
+
+  "remover-metadados": {
+    titulo: "Remover metadados",
+    ferramentas: ferramentasImagem["remover-metadados"]
+  },
+
+  "banco-imagens-gratis": {
+    titulo: "Banco de imagens grátis",
+    ferramentas: ferramentasImagem["banco-imagens-gratis"]
   },
 
   /* -------- VÍDEO -------- */
@@ -202,6 +365,59 @@ const dados = {
   "texto-voz": {
     titulo: "Texto → Voz",
     ferramentas: ferramentasAudio["texto-voz"]
+  },
+
+  /* -------- IA & PRODUTIVIDADE -------- */
+
+  "texto-conteudo": {
+    titulo: "Criação e análise de texto",
+    ferramentas: ferramentasIA["texto-conteudo"]
+  },
+
+  "design-apresentacao": {
+    titulo: "Apresentações automáticas",
+    ferramentas: ferramentasIA["design-apresentacao"]
+  },
+
+  "gerar-imagem": {
+    titulo: "Gerar imagem com IA",
+    ferramentas: ferramentasIA["gerar-imagem"]
   }
 };
 
+  /* -------- DOCUMENTOS -------- */
+
+  dados["converter-para-pdf"] = {
+    titulo: "Converter para PDF",
+    ferramentas: ferramentasDocumentos["converter-para-pdf"]
+  };
+
+  dados["converter-de-pdf"] = {
+    titulo: "Converter de PDF",
+    ferramentas: ferramentasDocumentos["converter-de-pdf"]
+  };
+
+  dados["comprimir-pdf"] = {
+    titulo: "Comprimir PDF",
+    ferramentas: ferramentasDocumentos["comprimir-pdf"]
+  };
+
+  dados["editar-pdf"] = {
+    titulo: "Editar PDF",
+    ferramentas: ferramentasDocumentos["editar-pdf"]
+  };
+
+  dados["assinar-pdf"] = {
+    titulo: "Assinar PDF",
+    ferramentas: ferramentasDocumentos["assinar-pdf"]
+  };
+
+  dados["proteger-pdf"] = {
+    titulo: "Proteger PDF",
+    ferramentas: ferramentasDocumentos["proteger-pdf"]
+  };
+
+
+
+
+  
