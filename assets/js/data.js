@@ -265,7 +265,6 @@ const ferramentasAudio = {
 /* =========================================================
    FERRAMENTAS — ENTRETENIMENTO
    ========================================================= */
-
    const ferramentasEntretenimento = {
   "filmes-series": [
     { nome: "Overflix", url: "https://www.overflixtv.forum" },
@@ -278,7 +277,8 @@ const ferramentasAudio = {
   "animes": [
     { nome: "MyAnimeList", url: "https://myanimelist.net" },
     { nome: "AniList", url: "https://anilist.co" },
-    { nome: "Kitsu", url: "https://kitsu.io" }
+    { nome: "Kitsu", url: "https://kitsu.io" },
+    { nome: "sushianimes", url: "https://sushianimes.com.br"}
   ]
 };
 
@@ -382,40 +382,54 @@ const dados = {
   "gerar-imagem": {
     titulo: "Gerar imagem com IA",
     ferramentas: ferramentasIA["gerar-imagem"]
-  }
-};
+  },
 
-  /* -------- DOCUMENTOS -------- */
+    /* -------- DOCUMENTOS -------- */
 
-  dados["converter-para-pdf"] = {
+  "converter-para-pdf": {
     titulo: "Converter para PDF",
     ferramentas: ferramentasDocumentos["converter-para-pdf"]
-  };
+  },
 
-  dados["converter-de-pdf"] = {
+  "converter-de-pdf": {
     titulo: "Converter de PDF",
     ferramentas: ferramentasDocumentos["converter-de-pdf"]
-  };
+  },
 
-  dados["comprimir-pdf"] = {
+  "comprimir-pdf": {
     titulo: "Comprimir PDF",
     ferramentas: ferramentasDocumentos["comprimir-pdf"]
-  };
+  },
 
-  dados["editar-pdf"] = {
+  "editar-pdf": {
     titulo: "Editar PDF",
     ferramentas: ferramentasDocumentos["editar-pdf"]
-  };
+  },
 
-  dados["assinar-pdf"] = {
+  "assinar-pdf": {
     titulo: "Assinar PDF",
     ferramentas: ferramentasDocumentos["assinar-pdf"]
-  };
+  },
 
-  dados["proteger-pdf"] = {
+  "proteger-pdf": {
     titulo: "Proteger PDF",
     ferramentas: ferramentasDocumentos["proteger-pdf"]
-  };
+  },
+
+
+  /* -------- ENTRETENIMENTO -------- */
+  "filmes-series": {
+    titulo: "Filmes & Séries",
+    ferramentas: ferramentasEntretenimento["filmes-series"]
+  },
+
+  "animes": {
+    titulo: "Animes",
+    ferramentas: ferramentasEntretenimento["animes"]
+  }
+
+}
+
 
 
 
