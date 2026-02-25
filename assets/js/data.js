@@ -133,14 +133,6 @@ const ferramentasAudio = {
     { nome: "NinjaConvert", url: "https://ninjaconvert.com/en/audio-converter" },
     { nome: "FreeConvert", url: "https://www.freeconvert.com/audio-converter" },
     { nome: "CloudConvert", url: "https://cloudconvert.com/audio-converter" }
-  ],
-
-  "texto-voz": [
-    { nome: "OnlineTTS", url: "https://onlinetts.org" },
-    { nome: "TTSMaker", url: "https://ttsmaker.com" },
-    { nome: "TTSFree", url: "https://ttsfree.com" },
-    { nome: "ElevenLabs", url: "https://elevenlabs.io" },
-    { nome: "Media.io", url: "https://www.media.io/text-to-speech.html" }
   ]
 };
 
@@ -172,10 +164,18 @@ const ferramentasAudio = {
       { nome: "Stable Diffusion", url: "https://stablediffusionweb.com" },
       { nome: "Craiyon", url: "https://craiyon.com" },
       { nome: "Reve", url: "https://app.reve.com" },
-      { nome: "Nano Banana (Gemeni)", url: "https://gemini.google.com" },
+      { nome: "Nano Banana (Gemini)", url: "https://gemini.google.com" },
       { nome: "BYLO AI", url: "https://bylo.ai" }
+    ],
 
-    ]
+
+  "texto-voz": [
+    { nome: "OnlineTTS", url: "https://onlinetts.org" },
+    { nome: "TTSMaker", url: "https://ttsmaker.com" },
+    { nome: "TTSFree", url: "https://ttsfree.com" },
+    { nome: "ElevenLabs", url: "https://elevenlabs.io" },
+    { nome: "Media.io", url: "https://www.media.io/text-to-speech.html" }
+  ]
    };
 
 
@@ -267,10 +267,10 @@ const ferramentasAudio = {
    ========================================================= */
    const ferramentasEntretenimento = {
   "filmes-series": [
-    { nome: "Overflix", url: "https://www.overflixtv.forum" },
+    { nome: "Overflix", url: "https://overflixtv.forum/" },
     { nome: "Obaflix", url: "https://obaflix.cloud/" },
-    { nome: "MyFlixer", url: "https://www.myflixer.to" },
-    { nome: "123Movies", url: "https://123moviesgo.to" },
+    { nome: "MyFlixer", url: "https://myflixerz.to/" },
+    { nome: "Popcormovies", url: "https://popcornmovies.org/" },
     { nome: "Velora tv", url: "https://www.veloratv.ru" }
   ],
 
@@ -362,11 +362,6 @@ const dados = {
     ferramentas: ferramentasAudio["converter-formato-audio"]
   },
 
-  "texto-voz": {
-    titulo: "Texto → Voz",
-    ferramentas: ferramentasAudio["texto-voz"]
-  },
-
   /* -------- IA & PRODUTIVIDADE -------- */
 
   "texto-conteudo": {
@@ -382,6 +377,11 @@ const dados = {
   "gerar-imagem": {
     titulo: "Gerar imagem com IA",
     ferramentas: ferramentasIA["gerar-imagem"]
+  },
+
+  "texto-voz": {
+    titulo: "Texto → Voz",
+    ferramentas: ferramentasIA["texto-voz"]
   },
 
     /* -------- DOCUMENTOS -------- */
