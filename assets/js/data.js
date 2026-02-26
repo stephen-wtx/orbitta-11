@@ -132,7 +132,14 @@ const ferramentasAudio = {
     { nome: "Super Converter", url: "https://super-converter.com/audio.html" },
     { nome: "NinjaConvert", url: "https://ninjaconvert.com/en/audio-converter" },
     { nome: "FreeConvert", url: "https://www.freeconvert.com/audio-converter" },
-    { nome: "CloudConvert", url: "https://cloudconvert.com/audio-converter" }
+    { nome: "CloudConvert", url: "https://cloudconvert.com/audio-converter" },
+  ],
+
+  "gerar-efeito": [
+    { nome: "Audioalter", url: "https://audioalter.com" },
+    { nome: "Slow and Reverb Studio", url: "https://slowedandreverb.studio" },
+    { nome: "SS Slowed and Reverb", url: "https://ssslowedandreverb.com" },
+    { nome: "Slowed + Reverb", url: "https://www.slowedandreverb.io/" }
   ]
 };
 
@@ -360,6 +367,11 @@ const dados = {
   "converter-formato-audio": {
     titulo: "Converter formato de áudio",
     ferramentas: ferramentasAudio["converter-formato-audio"]
+  },
+
+  "gerar-efeito": {
+    titulo: "Gerar efeito",
+    ferramentas: ferramentasAudio["gerar-efeito"]
   },
 
   /* -------- IA & PRODUTIVIDADE -------- */

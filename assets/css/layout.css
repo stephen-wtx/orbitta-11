@@ -35,7 +35,7 @@ body {
   background: var(--fundo);
   color: var(--texto);
   min-height: 100vh;
-  padding: 40px;
+  margin: 0;
   transition: background 0.4s ease;
 }
 
@@ -127,6 +127,7 @@ body {
 ========================= */
 header {
   margin-bottom: 40px;
+  padding: 40px;
   display: flex;
   justify-content: space-between;
 }
@@ -158,6 +159,7 @@ header {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 24px;
+  padding: 40px;
 }
 
 /* =========================
@@ -277,4 +279,53 @@ body:not(.dark) .card::after {
   height: 18px;
   border-radius: 4px;
   flex-shrink: 0;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+  background: var(--cinza);
+  display: flex;
+  flex-direction: column;
+  align-items: center;       /* centraliza tudo horizontalmente */
+  justify-content: center;
+  padding: 20px;        /* mais espaçamento vertical para clean look */
+  margin-top: 80px;           /* distância maior do conteúdo acima */
+  gap: 30px;                  /* espaçamento consistente entre elementos internos */
+}
+
+footer .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: justify;         /* centraliza descrição */
+  gap: 16px;                  /* espaçamento interno entre logo e descrição */
+  max-width: 800px;           /* evita texto muito esticado em telas grandes */
+}
+
+#footer-logo {
+  height: 100px;
+  margin-bottom: 0;           /* removido margin extra, já temos gap */
+}
+
+.descricao p {
+  font-size: 14px;
+  color: var(--texto);
+  line-height: 1.8;           /* aumenta legibilidade e respiro */
+  margin: 0;
+}
+
+hr {
+  width: 100%;                 /* mais clean, não ocupa toda a largura */
+  border: none;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  margin: 30px 0;
+}
+
+.text-center {
+  font-size: 13px;
+  color: var(--texto);
+  text-align: center;
 }
