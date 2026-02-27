@@ -2,102 +2,115 @@
    TOGGLE / botao
 ========================= */
 
-  .toggle-container {
-    position: relative;
-  }
+.toggle-container {
+  position: relative;
+}
 
-  .toggle-container input {
-    display: none;
-  }
+.toggle-container input {
+  display: none;
+}
 
-  .slider {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 8px;
-    width: 74px;
-    height: 38px;
-    border-radius: 50px;
-    position: relative;
-    cursor: pointer;
+/* =========================
+   BOTÃO (menor e proporcional)
+========================= */
+.slider {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6px;
 
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+  width: 64px;        /* era 74px */
+  height: 32px;       /* era 38px */
+  border-radius: 50px;
 
-    background: rgba(255, 255, 255, 0.25);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-    transition: all 0.4s ease;
-  }
+  position: relative;
+  cursor: pointer;
 
-  .dark .slider {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-  }
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 
-  .slider::before {
-    content: "";
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    left: 3px;
-    top: 3px;
-    border-radius: 50%;
-    
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
 
-    background: rgba(255, 255, 255, 0.923);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.4s ease;
+}
 
-    transition: transform 0.4s cubic-bezier(.4,0,.2,1);
-  }
+.dark .slider {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
 
-  input:checked + .slider::before{
-    transform: translateX(36px);
-  }
+/* =========================
+   CÍRCULO INTERNO
+========================= */
+.slider::before {
+  content: "";
+  position: absolute;
 
-  .icon {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  width: 24px;      /* era 30px */
+  height: 24px;     /* era 30px */
+  left: 4px;
+  top: 4px;
+  border-radius: 50%;
 
-  .icon svg {
-    width: 24px;
-    height: 24px;
-  }
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 
-    /* Sol */
-  .icon.sun svg {
-    color: #FFA500; /* amarelo dourado */
-  }
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 
-  /* Lua */
-  .icon.moon svg {
-    color: #403f3f; /* tom lunar */
-  }
+  transition: transform 0.4s cubic-bezier(.4,0,.2,1);
+}
 
-  .sun {
-    left: 6px;
-  }
+/* Ajuste proporcional do deslocamento */
+input:checked + .slider::before {
+  transform: translateX(30px); /* ajustado proporcionalmente */
+}
 
-  .moon {
-    right: 5px;
-    opacity: 0.6;
-  }
+/* =========================
+   ÍCONES
+========================= */
+.icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  input:checked + .slider .sun {
-    opacity: 0.6;
-  }
+.icon svg {
+  width: 18px;   /* era 24px */
+  height: 18px;  /* era 24px */
+}
 
-  input:checked + .slider .moon {
-    opacity: 1;
-  }
+/* Sol */
+.icon.sun svg {
+  color: #FFA500;
+}
 
+/* Lua */
+.icon.moon svg {
+  color: #403f3f;
+}
+
+.sun {
+  left: 7px;
+}
+
+.moon {
+  right: 6px;
+  opacity: 0.6;
+}
+
+input:checked + .slider .sun {
+  opacity: 0.6;
+}
+
+input:checked + .slider .moon {
+  opacity: 1;
+}
 
 
 /* =========================
@@ -118,65 +131,93 @@ header {
   display: block;
 }
 
-/* =========================
+/* ======================================================
    HEADER TYPING
-========================= */
+   ====================================================== */
+
+/* 
+  Container principal do typing
+  - Ocupa o espaço entre logo e toggle
+  - Centraliza o conteúdo
+*/
 .typing {
   flex: 1;
-  text-align: center;
+  min-width: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   font-weight: 500;
   font-size: 1.2rem;
   font-family: 'Bebas Neue', sans-serif;
   letter-spacing: 1px;
   color: var(--texto);
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-
-  min-width: 0; /* MUITO IMPORTANTE */
+  text-align: center;
 }
 
-/* impede overflow lateral feio */
+
+/* 
+  Texto digitado
+  - Permite quebra de palavra se necessário
+*/
 #typing-text {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  word-break: break-word;
 }
 
-/* Cursor */
-.cursor {
-  width: 2px;
-  height: 1.2em;
-  background: currentColor;
+
+/* ======================================================
+   CURSOR (VERSÃO MODERNA VIA PSEUDO-ELEMENTO)
+   ====================================================== */
+
+/* 
+  Cursor piscando criado via ::after
+  Evita necessidade de <span class="cursor">
+*/
+#typing-text::after {
+  content: "|";
+  margin-left: 4px;
   animation: blink 0.8s infinite;
-  border-radius: 2px;
 }
 
+/* 
+  Classe adicionada via JS quando quiser remover o cursor
+*/
+#typing-text.no-cursor::after {
+  content: "";
+  animation: none;
+}
+
+
+/* ======================================================
+   ANIMAÇÃO DO CURSOR
+   ====================================================== */
 @keyframes blink {
   0%, 50%, 100% { opacity: 1; }
   25%, 75% { opacity: 0; }
 }
 
 
+/* ======================================================
+   RESPONSIVIDADE
+   Mantém layout horizontal (não vira coluna)
+   ====================================================== */
 @media (max-width: 768px) {
 
-  header {
-    padding: 20px;
-    gap: 10px;
-  }
-
-  .logo img {
-    width: 55px;
-  }
-
   .typing {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     letter-spacing: 0.5px;
+    width: 100%;
+  }
+
+  #typing-text {
+    white-space: normal;   /* permite quebrar linha */
+    word-break: break-word;
   }
 
 }
+
 
 
 
