@@ -37,9 +37,9 @@ const categorias = [
 
 const ferramentasImagem = {
   "remover-fundo": [
-    { nome: "Pixelcut", url: "https://www.pixelcut.ai" },
+    { nome: "Pixa", url: "https://www.pixa.com/ai-image-editor?tool=removeBackground" },
     { nome: "Remove.bg", url: "https://www.remove.bg" },
-    { nome: "Adobe Express", url: "https://www.adobe.com/express" }
+    { nome: "Adobe Express", url: "https://www.adobe.com/express/feature/image/remove-background" }
   ],
 
   "melhorar-qualidade": [

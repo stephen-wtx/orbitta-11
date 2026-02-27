@@ -1,1 +1,44 @@
-@import url('https://fonts.googleapis.com/css2?family=Schoolbell&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Familjen+Grotesk:ital,wght@0,400..700;1,400..700&family=Outfit:wght@100..900&display=swap');
+
+/* =========================
+   VARIÁVEIS
+========================= */
+:root {
+  --preto: #0e0e0e;
+  --cinza-escuro: #1a1a1a;
+  --cinza: rgba(0, 0, 0, 0.05);
+  --cinza-claro: #b5b5b5;
+  --texto: #1a1a1a;
+  --fundo: #fafaf8;
+}
+
+/* Dark mode */
+.dark {
+  --fundo: #121212;
+  --texto: #f7f7f7;
+
+  /* Mantém o card visualmente igual ao efeito glass */
+  --cinza: rgba(255, 255, 255, 0.08);
+}
+
+
+
+/* =========================
+   RESET / BASE
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--fundo);
+  color: var(--texto);
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Familjen Grotesk', sans-serif;
+  transition: background 0.4s ease;
+}
+
