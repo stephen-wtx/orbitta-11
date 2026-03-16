@@ -276,16 +276,18 @@ const ferramentasAudio = {
   "filmes-series": [
     { nome: "Overflix", url: "https://overflixtv.forum/" },
     { nome: "Obaflix", url: "https://obaflix.cloud/" },
+    { nome: "Baixar filmes mp4", url: "https://filmesmp4.vip/" },
     { nome: "MyFlixer", url: "https://myflixerz.to/" },
     { nome: "Popcormovies", url: "https://popcornmovies.org/" },
-    { nome: "Velora tv", url: "https://www.veloratv.ru" }
+    { nome: "67 Movies", url: "https://67movies.net/" }
   ],
 
   "animes": [
+    { nome: "AnimesROLL", url: "https://anroll.tv/" },
+    { nome: "sushianimes", url: "https://sushianimes.com.br"},
     { nome: "MyAnimeList", url: "https://myanimelist.net" },
     { nome: "AniList", url: "https://anilist.co" },
-    { nome: "Kitsu", url: "https://kitsu.io" },
-    { nome: "sushianimes", url: "https://sushianimes.com.br"}
+    { nome: "Kitsu", url: "https://kitsu.io" }
   ]
 };
 
