@@ -226,6 +226,13 @@ const ferramentasAudio = {
     { nome: "iLovePDF Protect", url: "https://www.ilovepdf.com/protect-pdf" },
     { nome: "Smallpdf Protect", url: "https://smallpdf.com/protect-pdf" },
     { nome: "PDF2Go", url: "https://www.pdf2go.com/protect-pdf" }
+  ],
+
+  "traduzir-pdf": [
+    { nome: "Smallpdf", url: "https://smallpdf.com/pt/traduzir-pdf#r=translate" },
+    { nome: "SupaWork", url: "https://supawork.ai/pt-br/ai-pdf-translator" },
+    { nome: "OpenL", url: "https://openl.io/pt/translate/" },
+    { nome: "iLovePDF", url: "https://www.ilovepdf.com/translate-pdf" },  
   ]
 };
 
@@ -429,6 +436,12 @@ const dados = {
     titulo: "Proteger PDF",
     ferramentas: ferramentasDocumentos["proteger-pdf"]
   },
+
+  "traduzir-pdf": {
+    titulo: "Traduzir PDF",
+    ferramentas: ferramentasDocumentos["traduzir-pdf"]
+  },
+  
 
 
   /* -------- ENTRETENIMENTO -------- */
