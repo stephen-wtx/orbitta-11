@@ -300,6 +300,63 @@ const ferramentasAudio = {
 
 
 /* =========================================================
+   FERRAMENTAS — ENTRETENIMENTO
+   ========================================================= */
+   const ferramentasBaixadorVideos = {
+  "youtube": [
+    { nome: "Y2mate", url: "https://v18.www-y2mate.com/" },
+    { nome: "YTDown", url: "https://app.ytdown.to/en27/" },
+    { nome: "Yt1d.io", url: "https://yt1d.io/en22zv/" },
+    { nome: "Vidssave", url: "https://vidssave.com/index" },
+    { nome: "Zeemo", url: "https://zeemo.to/en2/" },
+  ],
+
+  "tiktok": [
+    { nome: "SSSTIK", url: "https://ssstik.io/"},
+    { nome: "MusicallyDown", url: "https://musicaldown.com/en"},
+    { nome: "Savetik", url: "https://savett.cc/en1/" },
+    { nome: "SnapTik", url: "https://snaptik.app/"},
+    { nome: "TTDownloader", url: "https://ttdownloader.com/" },
+    { nome: "TikTok Downloader", url: "https://tiktokdownloader.com/" }
+  ],
+
+  "instagram": [
+    { nome: "SSSinstagram", url: "https://sssinstagram.com/pt"},
+    { nome: "Reelsvideo", url: "https://reelsvideo.io/"},
+    { nome: "SnapInsta", url: "https://snapinsta.to/en2"},
+    { nome: "Toolzu", url: "https://toolzu.com/downloader/instagram/video/"},
+    { nome: "InDown.io", url: "https://indown.io/en1"},
+  ],
+
+  "facebook": [
+    { nome: "FDownloader.Net", url: "https://fdownloader.net/pt"},
+    { nome: "SnapSave", url: "https://snapsave.app/pt"},
+    { nome: "Fsave", url: "https://fsaver.net/"},
+    { nome: "Fget.io", url: "https://fget.io/"},
+    { nome: "Publer", url: "https://publer.com/tools/facebook-video-downloader"},
+  ],
+
+  "pinterest": [
+    { nome: "KlickPin", url: "https://klickpin.com/pt/"},
+    { nome: "PinLoad", url: "https://pinload.app/en/download"},
+    { nome: "Publer", url: "https://publer.com/tools/pinterest-video-downloader"},
+    { nome: "CONVERTCO", url: "https://convertico.com/pinterest-downloader/"},
+    { nome: "SavePinMedia", url: "https://savepinmedia.com/pt-1"},
+  ],
+
+  "multiopcional": [
+    {
+      nome: "Anydownloader", url: "https://anydownloader.com/"
+    }
+  ]
+};
+
+
+
+
+
+
+/* =========================================================
    ELEMENTOS DO MODAL (Display)
    ========================================================= */
 
@@ -453,9 +510,41 @@ const dados = {
   "animes": {
     titulo: "Animes",
     ferramentas: ferramentasEntretenimento["animes"]
-  }
+  },
+
+    /* -------- BAIXADOR DE VÍDEOS -------- */
+  "youtube": {
+    titulo: "YouTube",
+    ferramentas: ferramentasBaixadorVideos["youtube"]
+  },
+
+  "tiktok": {
+    titulo: "TikTok",
+    ferramentas: ferramentasBaixadorVideos["tiktok"]
+  },
+
+  "instagram": {
+    titulo: "Instagram",
+    ferramentas: ferramentasBaixadorVideos["instagram"]
+   },
+
+   "facebook": {
+    titulo: "Facebook",
+    ferramentas: ferramentasBaixadorVideos["facebook"]
+   },
+
+   "pinterest": {
+    titulo: "Pinterest",
+    ferramentas: ferramentasBaixadorVideos["pinterest"]
+   },
+
+   "multiopcional": {
+    titulo: "Multiopcional",
+    ferramentas: ferramentasBaixadorVideos["multiopcional"]
+   }
 
 }
+
 
 
 
