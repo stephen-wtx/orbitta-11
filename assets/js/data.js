@@ -49,10 +49,15 @@ const design = {
      
   ],
 
-  "melhorar-qualidade": [
-    { nome: "Picsart", url: "https://picsart.com" },
-    { nome: "Upscale.media", url: "https://www.upscale.media" },
-    { nome: "Cotout.pro", url: "https://www.cutout.pro" }
+  "icons": [
+    { nome: "Material Symbols", url: "https://fonts.google.com/icons" },
+    { nome: "Iconhub", url: "https://www.iconhub.io" },
+    { nome: "Hero icons", url: "https://www.heroicons.com" },
+    { nome: "Iconoir", url: "https://www.iconoir.com" },
+    { nome: "Flaticon", url: "https://www.flaticon.com" },
+    { nome: "Magnific", url: "https://www.iconduck.com" },
+    { nome: "Bootstrap Icons", url: "https://icons.getbootstrap.com/" }
+
   ],
 
 };

@@ -90,7 +90,7 @@ body {
 }
 
 body:not(.dark) {
-  background-image: url("data:image/svg+xml,%3Csvg width='64' height='64' viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3C!-- Primary grid lines --%3E%3Cline x1='0' y1='32' x2='64' y2='32' stroke='%23E5E7EB' stroke-width='0.5' stroke-opacity='0.06' /%3E%3Cline x1='32' y1='0' x2='32' y2='64' stroke='%23E5E7EB' stroke-width='0.5' stroke-opacity='0.06' /%3E%3C!-- Secondary offset lines --%3E%3Cline x1='0' y1='16' x2='64' y2='16' stroke='%23E5E7EB' stroke-width='0.3' stroke-opacity='0.04' /%3E%3Cline x1='0' y1='48' x2='64' y2='48' stroke='%23E5E7EB' stroke-width='0.3' stroke-opacity='0.04' /%3E%3Cline x1='16' y1='0' x2='16' y2='64' stroke='%23E5E7EB' stroke-width='0.3' stroke-opacity='0.04' /%3E%3Cline x1='48' y1='0' x2='48' y2='64' stroke='%23E5E7EB' stroke-width='0.3' stroke-opacity='0.04' /%3E%3C!-- Diagonal accent --%3E%3Cline x1='-8' y1='72' x2='72' y2='-8' stroke='%23E5E7EB' stroke-width='0.4' stroke-opacity='0.035' /%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='64' height='64' viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3C!-- Primary grid lines --%3E%3Cline x1='0' y1='32' x2='64' y2='32' stroke='%23E5E7EB' stroke-width='0.5' stroke-opacity='0.25' /%3E%3Cline x1='32' y1='0' x2='32' y2='64' stroke='%23E5E7EB' stroke-width='0.5' stroke-opacity='0.25' /%3E%3C!-- Secondary offset lines --%3E%3Cline x1='0' y1='16' x2='64' y2='16' stroke='%23E5E7EB' stroke-width='0.3' stroke-opacity='0.15' /%3E%3Cline x1='0' y1='48' x2='64' y2='48' stroke='%23E5E7EB' stroke-width='0.3' stroke-opacity='0.15' /%3E%3Cline x1='16' y1='0' x2='16' y2='64' stroke='%23E5E7EB' stroke-width='0.3' stroke-opacity='0.15' /%3E%3Cline x1='48' y1='0' x2='48' y2='64' stroke='%23E5E7EB' stroke-width='0.3' stroke-opacity='0.15' /%3E%3C/svg%3E");
   background-size: 64px 64px;
 }
 
@@ -548,7 +548,7 @@ body.sidebar-collapsed .main-wrapper {
   align-items: center;
   min-width: 0;
   font-weight: 500;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-family: 'Bebas Neue', sans-serif;
   letter-spacing: 0.4px;
   color: var(--light);
@@ -824,23 +824,7 @@ body:not(.dark) .links a:hover {
   text-align: center;
 }
 
-.main-wrapper footer a {
-  color: var(--sidebar-text-muted);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  font-weight: 500;
-  transition: color var(--transition-fast);
-}
 
-.main-wrapper footer a:hover {
-  color: var(--accent);
-}
-
-.main-wrapper footer .heart {
-  color: #DC2626;
-  display: inline-block;
-  animation: heartbeat 1.5s ease infinite;
-}
 
 @keyframes heartbeat {
   0%, 100% { transform: scale(1); }
@@ -922,7 +906,8 @@ body:not(.dark) .links a:hover {
 
 @media (max-width: 480px) {
   .sidebar {
-    width: 100%;
+    width: 70%; /* Ocupa 70% da largura da tela */
+    max-width: 300px; /* Garante um limite visual agradável */
   }
 
   main {
