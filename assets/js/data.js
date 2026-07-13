@@ -31,6 +31,33 @@ const categorias = [
 ];
 
 
+
+const design = {
+  "fontes": [
+    { nome: "Google Fonts", url: "https://fonts.google.com" },
+    { nome: "Fontshare", url: "https://fontshare.com" },
+    { nome: "Adobe Fonts", url: "https://fonts.adobe.com" },
+    { nome: "Font Space", url: "https://www.fontspace.com" },
+    { nome: "DaFont", url: "https://www.dafont.com" },
+    { nome: "Uncut", url: "https://www.uncut.wtf" },
+    { nome: "Collletttivo", url: "https://www.collletttivo.it" },
+    { nome: "Font Squirrel", url: "https://www.fontsquirrel.com" },
+    { nome: "1001freefonts", url: "https://www.1001freefonts.com" },
+    { nome: "Fontlibrary", url: "https://www.fontlibrary.org" },
+    { nome: "Fontesk", url: "https://www.fontesk.com" },
+    { nome: "Unblast", url: "https://www.unblast.com" },
+     
+  ],
+
+  "melhorar-qualidade": [
+    { nome: "Picsart", url: "https://picsart.com" },
+    { nome: "Upscale.media", url: "https://www.upscale.media" },
+    { nome: "Cotout.pro", url: "https://www.cutout.pro" }
+  ],
+
+};
+
+
 /* =========================================================
    FERRAMENTAS — IMAGENS
    ========================================================= */
@@ -291,7 +318,6 @@ const ferramentasAudio = {
   "animes": [
     { nome: "AnimesROLL", url: "https://anroll.tv/" },
     { nome: "Meusanimes", url: "https://meusanimes.blog/" },
-    { nome: "sushianimes", url: "https://sushianimes.com.br"},
     { nome: "MyAnimeList", url: "https://myanimelist.net" },
     { nome: "AniList", url: "https://anilist.co" },
     { nome: "Kitsu", url: "https://kitsu.io" }
@@ -353,25 +379,23 @@ const ferramentasAudio = {
 
 
 
-
-
-
 /* =========================================================
-   ELEMENTOS DO MODAL (Display)
-   ========================================================= */
-
-const modal = document.getElementById("modal");
-const modalClose = document.getElementById("modalClose");
-const modalTitulo = document.getElementById("modalTitulo");
-const modalLinks = document.getElementById("modalLinks");
-
-
-/* =========================================================
-   DADOS UNIFICADOS PARA O MODAL
+   DADOS UNIFICADOS DAS FERRAMENTAS
    (fonte única de verdade para ações)
    ========================================================= */
 
 const dados = {
+    /* -------- DESIGN -------- */
+  "icons": {
+    titulo: "Icons",
+    ferramentas: design["icons"]
+  },
+
+  "fontes": {
+    titulo: "Fontes",
+    ferramentas: design["fontes"]
+  },
+
   /* -------- IMAGENS -------- */
   "remover-fundo": {
     titulo: "Remover fundo",

@@ -4,12 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Orbitta 11 - Hub de ferramentas online</title>
+
+  <!-- Fonts & Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Stylesheets (order matters) -->
   <link rel="stylesheet" href="assets/css/base.css">
-  <link rel="stylesheet" href="assets/css/modal.css">
   <link rel="stylesheet" href="assets/css/componentes.css">
   <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/redesign.css">
 
   <!-- favicon -->
   <link rel="icon" type="image/png" href="assets/imgs/favicon/favicon-96x96.png" sizes="96x96" />
@@ -17,190 +22,380 @@
   <link rel="shortcut icon" href="assets/imgs/favicon/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="assets/imgs/favicon/apple-touch-icon.png" />
   <link rel="manifest" href="assets/imgs/favicon/site.webmanifest" />
-
 </head>
+
 <body>
 
-<!-- MODAL -->
-<div class="modal-overlay" id="modal">
-  <div class="modal">
-    <button class="modal-close" id="modalClose">×</button>
-    <h3 id="modalTitulo">Ferramentas</h3>
-    <div class="modal-links" id="modalLinks"></div>
-  </div>
-</div>
+  <!-- ============================================================
+       SPACE CANVAS (unchanged - toggle.js depends on this)
+       ============================================================ -->
+  <canvas id="space-bg" style="
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  "></canvas>
 
-<canvas id="space-bg" style="
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0;
-  transition: opacity 0.6s ease;
-"></canvas>
+  <!-- ============================================================
+       SIDEBAR
+       ============================================================ -->
+  <aside class="sidebar" id="sidebar" role="navigation" aria-label="Navegação principal">
 
-<header>
-  <figure class="logo">
-    <img
-      src="assets/imgs/logo.png"
-      alt="Orbitta 11 - logo">
-  </figure>
-
-  <label class="toggle-container">
-  <input type="checkbox" id="toggle-tema">
-  <div class="slider">
-
-
-    <!-- Sol -->
-    <span class="icon sun">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-        <path d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z" />
-      </svg>
-    </span>
-
-    <!-- Lua -->
-    <span class="icon moon">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-        <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 0 1 .162.819A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9 8.97 8.97 0 0 0 3.463-.69.75.75 0 0 1 .981.98 10.503 10.503 0 0 1-9.694 6.46c-5.799 0-10.5-4.7-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 0 1 .818.162Z" clip-rule="evenodd" />
-      </svg>
-    </span>
-  </div>
-</label>
-</header>
-
-<!-- Typing effect -->
-<div class="typing">
-  <span id="typing-text"></span>
-</div>
-
-
-<main>
-  <section class="dashboard" id="dashboard">
-
-    <!-- IMAGENS -->
-    <div class="card imagem">
-      <h2>Imagens</h2>
-      <div class="links">
-        <a href="#" data-acao="remover-fundo"><span>Remover fundo</span></a>
-        <a href="#" data-acao="melhorar-qualidade"><span>Melhorar qualidade</span></a>
-        <a href="#" data-acao="converter-formatos"><span>Converter formatos</span></a>
-        <a href="#" data-acao="comprimir-imagens"><span>Comprimir imagens</span></a>
-        <a href="#" data-acao="remover-metadados"><span>Remover metadados</span></a>
-        <a href="#" data-acao="banco-imagens-gratis"><span>Banco de imagens grátis</span></a>
+    <!-- Sidebar Header -->
+    <div class="sidebar-header">
+      <div class="sidebar-logo">
+        <img src="assets/imgs/logo.png" alt="Orbitta 11">
       </div>
+      <span class="sidebar-brand">Orbitta 11</span>
+      <button class="sidebar-close" id="sidebarClose" aria-label="Fechar menu">&times;</button>
     </div>
 
-    <!-- VÍDEOS -->
-    <div class="card video">
-      <h2>Vídeos</h2>
-      <div class="links">
-        <a href="#" data-acao="comprimir-video"><span>Comprimir vídeo</span></a>
-        <a href="#" data-acao="converter-formato-video"><span>Conversão de formato</span></a>
-        <a href="#" data-acao="editar-video"><span>Editar vídeo</span></a>
-        <a href="#" data-acao="gerar-legendas"><span>Gerar legendas</span></a>
+    <!-- Sidebar Navigation with Accordion Categories -->
+    <nav class="sidebar-nav">
+
+      <div class="nav-group-label">Categorias</div>
+
+      <!-- Imagens -->
+      <div class="nav-category">
+        <button class="nav-category-header"  type="button">
+          <i class="fas fa-image"></i>
+          <span>Imagens</span>
+          <i class="fas fa-chevron-down nav-arrow"></i>
+        </button>
+        <div class="nav-submenu">
+          <a href="#" data-acao="remover-fundo" class="nav-subitem">Remover fundo</a>
+          <a href="#" data-acao="melhorar-qualidade" class="nav-subitem">Melhorar qualidade</a>
+          <a href="#" data-acao="converter-formatos" class="nav-subitem">Converter formatos</a>
+          <a href="#" data-acao="comprimir-imagens" class="nav-subitem">Comprimir imagens</a>
+          <a href="#" data-acao="remover-metadados" class="nav-subitem">Remover metadados</a>
+          <a href="#" data-acao="banco-imagens-gratis" class="nav-subitem">Banco de imagens gr&aacute;tis</a>
+        </div>
+      </div>
+
+      <!-- V&iacute;deos -->
+      <div class="nav-category">
+        <button class="nav-category-header"  type="button">
+          <i class="fas fa-video"></i>
+          <span>V&iacute;deos</span>
+          <i class="fas fa-chevron-down nav-arrow"></i>
+        </button>
+        <div class="nav-submenu">
+          <a href="#" data-acao="comprimir-video" class="nav-subitem">Comprimir v&iacute;deo</a>
+          <a href="#" data-acao="converter-formato-video" class="nav-subitem">Convers&atilde;o de formato</a>
+          <a href="#" data-acao="editar-video" class="nav-subitem">Editar v&iacute;deo</a>
+          <a href="#" data-acao="gerar-legendas" class="nav-subitem">Gerar legendas</a>
+        </div>
+      </div>
+
+      <!-- &Aacute;udio & Voz -->
+      <div class="nav-category">
+        <button class="nav-category-header"  type="button">
+          <i class="fas fa-music"></i>
+          <span>&Aacute;udio &amp; Voz</span>
+          <i class="fas fa-chevron-down nav-arrow"></i>
+        </button>
+        <div class="nav-submenu">
+          <a href="#" data-acao="melhorar-audio" class="nav-subitem">Melhorar &aacute;udio</a>
+          <a href="#" data-acao="converter-formato-audio" class="nav-subitem">Converter formato de &aacute;udio</a>
+          <a href="#" data-acao="gerar-efeito" class="nav-subitem">Gerar Efeito</a>
+        </div>
+      </div>
+
+      <!-- IA e Produtividade -->
+      <div class="nav-category">
+        <button class="nav-category-header"  type="button">
+          <i class="fas fa-robot"></i>
+          <span>IA e Produtividade</span>
+          <i class="fas fa-chevron-down nav-arrow"></i>
+        </button>
+        <div class="nav-submenu">
+          <a href="#" data-acao="texto-conteudo" class="nav-subitem">Cria&ccedil;&atilde;o e an&aacute;lise de texto</a>
+          <a href="#" data-acao="design-apresentacao" class="nav-subitem">Apresenta&ccedil;&otilde;es autom&aacute;ticas</a>
+          <a href="#" data-acao="gerar-imagem" class="nav-subitem">Gerar imagem com IA</a>
+          <a href="#" data-acao="texto-voz" class="nav-subitem">Texto &rarr; Voz</a>
+        </div>
+      </div>
+
+      <!-- Documentos -->
+      <div class="nav-category">
+        <button class="nav-category-header"  type="button">
+          <i class="fas fa-file-alt"></i>
+          <span>Documentos</span>
+          <i class="fas fa-chevron-down nav-arrow"></i>
+        </button>
+        <div class="nav-submenu">
+          <a href="#" data-acao="converter-para-pdf" class="nav-subitem">Converter para PDF</a>
+          <a href="#" data-acao="converter-de-pdf" class="nav-subitem">Converter de PDF</a>
+          <a href="#" data-acao="comprimir-pdf" class="nav-subitem">Comprimir PDF</a>
+          <a href="#" data-acao="editar-pdf" class="nav-subitem">Editar PDF</a>
+          <a href="#" data-acao="assinar-pdf" class="nav-subitem">Assinar PDF</a>
+          <a href="#" data-acao="proteger-pdf" class="nav-subitem">Proteger PDF</a>
+          <a href="#" data-acao="traduzir-pdf" class="nav-subitem">Traduzir PDF</a>
+        </div>
+      </div>
+
+      <!-- Entretenimento -->
+      <div class="nav-category">
+        <button class="nav-category-header"  type="button">
+          <i class="fas fa-film"></i>
+          <span>Entretenimento</span>
+          <i class="fas fa-chevron-down nav-arrow"></i>
+        </button>
+        <div class="nav-submenu">
+          <a href="#" data-acao="filmes-series" class="nav-subitem">Filmes &amp; S&eacute;ries</a>
+          <a href="#" data-acao="animes" class="nav-subitem">Animes</a>
+          <a href="https://yarrlist.net" target="_blank" class="nav-subitem ext-link">Fonte</a>
+          <a href="https://tbcpl.lol/" target="_blank" class="nav-subitem ext-link">Fonte2</a>
+        </div>
+      </div>
+
+      <!-- Baixador de V&iacute;deos -->
+      <div class="nav-category">
+        <button class="nav-category-header"  type="button">
+          <i class="fas fa-download"></i>
+          <span>Baixador de V&iacute;deos</span>
+          <i class="fas fa-chevron-down nav-arrow"></i>
+        </button>
+        <div class="nav-submenu">
+          <a href="#" data-acao="youtube" class="nav-subitem">Youtube</a>
+          <a href="#" data-acao="tiktok" class="nav-subitem">TikTok</a>
+          <a href="#" data-acao="instagram" class="nav-subitem">Instagram</a>
+          <a href="#" data-acao="facebook" class="nav-subitem">Facebook</a>
+          <a href="#" data-acao="pinterest" class="nav-subitem">Pinterest</a>
+          <a href="#" data-acao="multiopcional" class="nav-subitem">Multiopcional</a>
+        </div>
+      </div>
+
+      <!-- Design & Inspira&ccedil;&atilde;o -->
+      <div class="nav-category">
+        <button class="nav-category-header"  type="button">
+          <i class="fas fa-palette"></i>
+          <span>Design &amp; Inspira&ccedil;&atilde;o</span>
+          <i class="fas fa-chevron-down nav-arrow"></i>
+        </button>
+        <div class="nav-submenu">
+          <a href="#" data-acao="fontes" class="nav-subitem">Fontes</a>
+          <a href="#" data-acao="icons" class="nav-subitem">Icons</a>
+<!-- 
+          <a href="https://www.pinterest.com" target="_blank" class="nav-subitem ext-link">Pinterest</a>
+          <a href="https://www.behance.net" target="_blank" class="nav-subitem ext-link">Behance</a>
+          <a href="https://dribbble.com" target="_blank" class="nav-subitem ext-link">Dribbble</a>
+          <a href="https://land-book.com" target="_blank" class="nav-subitem ext-link">Land-Book</a> -->
+        </div>
+      </div>
+
+      <!-- Armazenamento -->
+      <div class="nav-category">
+        <button class="nav-category-header"  type="button">
+          <i class="fas fa-cloud"></i>
+          <span>Armazenamento</span>
+          <i class="fas fa-chevron-down nav-arrow"></i>
+        </button>
+        <div class="nav-submenu">
+          <a href="https://drive.google.com" target="_blank" class="nav-subitem ext-link">Google Drive</a>
+          <a href="https://onedrive.live.com" target="_blank" class="nav-subitem ext-link">OneDrive</a>
+          <a href="https://proton.me/drive" target="_blank" class="nav-subitem ext-link">Proton Drive</a>
+          <a href="https://mega.nz" target="_blank" class="nav-subitem ext-link">Mega</a>
+          <a href="https://www.dropbox.com" target="_blank" class="nav-subitem ext-link">Dropbox</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Sidebar Footer -->
+    <div class="sidebar-footer">
+      <div class="sidebar-toggle">
+        <span class="toggle-label">Tema escuro</span>
+        <label class="toggle-container">
+          <input type="checkbox" id="toggle-tema">
+          <div class="slider">
+            <!-- Sol -->
+            <span class="icon sun">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                <path d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z" />
+              </svg>
+            </span>
+            <!-- Lua -->
+            <span class="icon moon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 0 1 .162.819A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9 8.97 8.97 0 0 0 3.463-.69.75.75 0 0 1 .981.98 10.503 10.503 0 0 1-9.694 6.46c-5.799 0-10.5-4.7-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 0 1 .818.162Z" clip-rule="evenodd" />
+              </svg>
+            </span>
+          </div>
+        </label>
       </div>
     </div>
+  </aside>
 
-    <!-- ÁUDIO -->
-    <div class="card audio">
-      <h2>Áudio & Voz</h2>
-      <div class="links">
-        <a href="#" data-acao="melhorar-audio"><span>Melhorar áudio</span></a>
-        <a href="#" data-acao="converter-formato-audio"><span>Converter formato de áudio</span></a>
-        <a href="#" data-acao="gerar-efeito"><span>Gerar Efeito</span></a>
+  <!-- ============================================================
+       SIDEBAR OVERLAY (mobile)
+       ============================================================ -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- ============================================================
+       MAIN WRAPPER
+       ============================================================ -->
+  <div class="main-wrapper">
+
+    <!-- ============================================================
+         TOPBAR
+         ============================================================ -->
+    <header class="topbar">
+      <button class="hamburger" id="hamburger" aria-label="Abrir menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Typing effect -->
+      <div class="typing">
+        <span id="typing-text"></span>
       </div>
-    </div>
+    </header>
 
+    <!-- ============================================================
+         MAIN CONTENT
+         ============================================================ -->
+    <main>
+      <!-- ============================================================
+           TOOL CONTENT PANEL (primary content — no dashboard)
+           ============================================================ -->
+      <section class="tool-panel" id="toolPanel" style="display: none;">
+        <div class="tool-panel-header">
+          <h2 id="toolPanelTitle">Ferramentas</h2>
+        </div>
+        <div class="tool-panel-links" id="toolPanelLinks"></div>
+      </section>
 
-    <!-- IA & PRODUTIVIDADE -->
-    <div class="card audio">
-      <h2>IA e Produtividade</h2>
-      <div class="links">
-        <a href="#" data-acao="texto-conteudo"><span>Criação e análise de texto</span></a>
-        <a href="#" data-acao="design-apresentacao"><span>Apresentações automáticas</span></a>
-        <a href="#" data-acao="gerar-imagem"><span>Gerar imagem com IA</span></a>
-        <a href="#" data-acao="texto-voz"><span>Texto → Voz</span></a>
+    </main>
+
+    <!-- ============================================================
+         FOOTER
+         ============================================================ -->
+    <footer>
+      <div class="container">
+        <img src="assets/imgs/logo.png" alt="" id="footer-logo">
       </div>
-    </div>
-
-    <!-- DOCUMENTOS -->
-    <div class="card documentos">
-      <h2>Documentos</h2>
-      <div class="links">
-        <a href="#" data-acao="converter-para-pdf"><span>Converter para PDF</span></a>
-        <a href="#" data-acao="converter-de-pdf"><span>Converter de PDF</span></a>
-        <a href="#" data-acao="comprimir-pdf"><span>Comprimir PDF</span></a>
-        <a href="#" data-acao="editar-pdf"><span>Editar PDF</span></a>
-        <a href="#" data-acao="assinar-pdf"><span>Assinar PDF</span></a>
-        <a href="#" data-acao="proteger-pdf"><span>Proteger PDF</span></a>
-        <a href="#" data-acao="traduzir-pdf"><span>Traduzir PDF</span></a>
-      </div>
-    </div>
-
-    
-    <!-- ENTRETENIMENTO -->
-    <div class="card entretenimento">
-      <h2>Entretenimento</h2>
-      <div class="links">
-        <a href="#" data-acao="filmes-series"><span>Filmes & Séries</span></a>
-        <a href="#" data-acao="animes"><span>Animes</span></a>
-        <a href="https://yarrlist.net" target="_blank"><span>Fonte</span></a>
-        <a href="https://tbcpl.lol/" target="_blank"><span>Fonte2</span></a>
-      </div>
-    </div>
 
 
-    <!--BAIXADOR DE VIDEOS -->
+      <p class="text-center">
+        2026 &copy; Orbitta 11 - Todos os direitos reservados.
+      </p>
+      <p class="text-center">
+        Desenvolvido com <span class="heart">&hearts;</span> pela <a href="https://mindstack.online" target="_blank">Mindstack</a>
+      </p>
+    </footer>
 
-    <div class="card baixador-videos">
-      <h2>Baixador de Vídeos</h2>
-      <div class="links">
-        <a href="#" data-acao="youtube"><span>Youtube</span></a>
-        <a href="#" data-acao="tiktok"><span>TikTok</span></a>
-        <a href="#" data-acao="instagram"><span>Instagram</span></a>
-        <a href="#" data-acao="facebook"><span>Facebook</span></a>
-        <a href="#" data-acao="pinterest"><span>Pinterest</span></a>
-        <a href="#" data-acao="multiopcional"><span>Multiopcional</span></a>
-      </div>
-    </div>
+  </div><!-- /main-wrapper -->
 
-      
-    
-  </section>
-</main>
+  <!-- ============================================================
+       SIDEBAR CONTROLLER + AUTO-SELECT FIRST TOOL
+       ============================================================ -->
+  <script>
+    (function() {
+      var sidebar = document.getElementById('sidebar');
+      var overlay = document.getElementById('sidebarOverlay');
+      var hamburger = document.getElementById('hamburger');
+      var closeBtn = document.getElementById('sidebarClose');
 
-<footer>
+      function openSidebar() {
+        document.body.classList.add('sidebar-open');
+        if (overlay) overlay.classList.add('active');
+        if (hamburger) hamburger.classList.add('active');
+      }
 
-  <div class="container">
-  
-  <img src="assets/imgs/logo.png" alt="" id="footer-logo">
+      function closeSidebar() {
+        document.body.classList.remove('sidebar-open');
+        if (overlay) overlay.classList.remove('active');
+        if (hamburger) hamburger.classList.remove('active');
+      }
 
-  <div class="descricao">
-    <p>
-       <strong>Orbitta 11&trade;</strong>   é um hub  que conecta você às principais ferramentas digitais da atualidade. <br>
-        Reunimos, em um único lugar,
-       links organizados por nichos como mídia, entretenimento, design e muito mais, facilitando o acesso rápido ao que realmente importa no seu dia a dia.
-    </p>
-  </div>
-</div>
+      if (hamburger) hamburger.addEventListener('click', openSidebar);
+      if (closeBtn) closeBtn.addEventListener('click', closeSidebar);
+      if (overlay) overlay.addEventListener('click', closeSidebar);
 
-<hr>
+      // ============================================
+      // ACCORDION — category expand/collapse
+      // ============================================
+      document.querySelectorAll('.nav-category-header').forEach(function(header) {
+        header.addEventListener('click', function(e) {
+          var category = this.closest('.nav-category');
+          var isOpen = category.classList.contains('expanded');
 
-  <p class="text-center">
-      2026 &copy; Orbitta 11 - Todos os direitos reservados.
-  </p>
-  <p class="text-center">
-      Desenvolvido com <span class="heart">❤</span> pela <a href="https://mindstack.online" target="_blank" style="text-decoration: underline; color: #f58b1d;">Mindstack</a>
-  </p>
+          document.querySelectorAll('.nav-category.expanded').forEach(function(other) {
+            if (other !== category) {
+              other.classList.remove('expanded');
+            }
+          });
 
-</footer>
+          if (isOpen) {
+            category.classList.remove('expanded');
+          } else {
+            category.classList.add('expanded');
+          }
+        });
+      });
 
-<script src="assets/js/modal.js"></script>
-<script src="assets/js/data.js"></script>
-<script src="assets/js/app.js"></script>
-<script src="assets/js/toggle.js"></script>
-<script src="assets/js/typing.js"></script>
-<script defer src="https://va.vercel-scripts.com/v1/script.js"></script>
+      // ============================================
+      // SUB-ITEM CLICK — mark active, close mobile
+      // ============================================
+      document.querySelectorAll('.nav-subitem').forEach(function(item) {
+        item.addEventListener('click', function() {
+          document.querySelectorAll('.nav-subitem.active').forEach(function(s) {
+            s.classList.remove('active');
+          });
+          this.classList.add('active');
+
+          var category = this.closest('.nav-category');
+          document.querySelectorAll('.nav-category.active').forEach(function(c) {
+            c.classList.remove('active');
+          });
+          if (category) category.classList.add('active');
+
+          closeSidebar();
+        });
+      });
+
+      // ============================================
+      // KEYBOARD: Escape closes sidebar
+      // ============================================
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          if (document.body.classList.contains('sidebar-open')) {
+            closeSidebar();
+          }
+        }
+      });
+
+      // ============================================
+      // AUTO-SELECT: open first category & select first tool
+      // ============================================
+      function autoSelectFirstTool() {
+        var firstCategory = document.querySelector('.nav-category');
+        var firstSubitem = document.querySelector('.nav-subitem[data-acao]');
+        if (firstCategory && firstSubitem) {
+          firstCategory.classList.add('expanded');
+          firstSubitem.click();
+        }
+      }
+
+      // Run after all scripts have loaded
+      if (document.readyState === 'complete') {
+        autoSelectFirstTool();
+      } else {
+        window.addEventListener('load', autoSelectFirstTool);
+      }
+    })();
+  </script>
+
+  <!-- Scripts (preserved order) -->
+  <script src="assets/js/modal.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/toggle.js"></script>
+  <script src="assets/js/typing.js"></script>
+  <script defer src="https://va.vercel-scripts.com/v1/script.js"></script>
 </body>
 </html>

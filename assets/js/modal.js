@@ -1,72 +1,83 @@
-
 /* =========================================================
-   INTERAÇÃO — ABRIR MODAL
+   INTERAÇÃO — CARREGAR FERRAMENTA NO PAINEL COM SKELETON
    ========================================================= */
+
+let activeAcaoId = 0;
 
 document.addEventListener("click", (e) => {
   const link = e.target.closest("a[data-acao]");
   if (!link) return;
 
-  e.preventDefault(); // 🔥 impede scroll para o topo
+  e.preventDefault();
 
   const acao = link.dataset.acao;
   if (!dados[acao]) return;
 
-  // Atualiza cor do modal
-  const card = link.closest(".card");
-  if (card) {
-    const cor = getComputedStyle(card).getPropertyValue("--cor-principal");
-    document.querySelector(".modal")
-      .style.setProperty("--cor-principal", cor);
+  const toolPanel = document.getElementById("toolPanel");
+  const toolTitle = document.getElementById("toolPanelTitle");
+  const toolLinks = document.getElementById("toolPanelLinks");
+
+  // Incrementa ID de requisição ativa para evitar condições de corrida
+  activeAcaoId++;
+  const thisRequestId = activeAcaoId;
+
+  // Atualiza título imediatamente
+  toolTitle.textContent = dados[acao].titulo;
+  toolLinks.innerHTML = "";
+
+  // Renderiza Skeletons para dar feedback visual de carregamento
+  for (let i = 0; i < 3; i++) {
+    const skeletonCard = document.createElement("div");
+    skeletonCard.className = "skeleton-card";
+
+    const iconPlaceholder = document.createElement("div");
+    iconPlaceholder.className = "skeleton-icon skeleton-shimmer";
+
+    const textPlaceholder = document.createElement("div");
+    textPlaceholder.className = "skeleton-text skeleton-shimmer";
+
+    const extPlaceholder = document.createElement("div");
+    extPlaceholder.className = "skeleton-ext skeleton-shimmer";
+
+    skeletonCard.appendChild(iconPlaceholder);
+    skeletonCard.appendChild(textPlaceholder);
+    skeletonCard.appendChild(extPlaceholder);
+    toolLinks.appendChild(skeletonCard);
   }
 
-  // Conteúdo do modal
-  modalTitulo.textContent = dados[acao].titulo;
-  modalLinks.innerHTML = "";
+  // Exibe painel com os skeletons imediatamente
+  toolPanel.style.display = "block";
+  toolPanel.scrollIntoView({ behavior: "smooth", block: "start" });
 
-  dados[acao].ferramentas.forEach(item => {
-    const novoLink = document.createElement("a");
-    novoLink.href = item.url;
-    novoLink.target = "_blank";
+  // Simula o carregamento e popula com os links reais após 300ms
+  setTimeout(() => {
+    // Se outra categoria foi clicada nesse meio tempo, aborta esta renderização
+    if (thisRequestId !== activeAcaoId) return;
 
-    const icon = document.createElement("img");
-    icon.src = `https://www.google.com/s2/favicons?domain=${item.url}&sz=64`;
+    toolLinks.innerHTML = "";
 
-    novoLink.appendChild(icon);
-    novoLink.append(item.nome);
+    // Popula links reais
+    dados[acao].ferramentas.forEach(item => {
+      const card = document.createElement("a");
+      card.href = item.url;
+      card.target = "_blank";
+      card.className = "tool-link";
 
-    modalLinks.appendChild(novoLink);
-  });
+      const icon = document.createElement("img");
+      icon.src = `https://www.google.com/s2/favicons?domain=${item.url}&sz=64`;
+      icon.alt = item.nome;
+      icon.loading = "lazy";
 
-  modal.style.display = "flex";
+      const name = document.createElement("span");
+      name.textContent = item.nome;
+
+      const extIcon = document.createElement("i");
+      extIcon.className = "fas fa-external-link-alt tool-link-ext";
+
+      card.appendChild(icon);
+      card.appendChild(name);
+      card.appendChild(extIcon);
+      toolLinks.appendChild(card);
+    });
+  }, 300);
 });
-
-
-/* =========================================================
-   INTERAÇÃO — FECHAR MODAL
-   ========================================================= */
-
-modalClose.onclick = () => {
-  modal.style.display = "none";
-};
-
-modal.onclick = (e) => {
-  if (e.target === modal) {
-    modal.style.display = "none";
-  }
-};
-
-document.addEventListener("click", (e) => {
-  const link = e.target.closest("a[data-acao]");
-  if (!link) return;
-
-  const card = link.closest(".card");
-  if (!card) return;
-
-  // Lê a cor principal do card
-  const cor = getComputedStyle(card).getPropertyValue("--cor-principal");
-
-  // Aplica no modal
-  document.querySelector(".modal").style.setProperty("--cor-principal", cor);
-});
-

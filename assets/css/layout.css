@@ -7,7 +7,10 @@
 }
 
 .toggle-container input {
-  display: none;
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
 
 /* =========================
@@ -87,12 +90,12 @@ input:checked + .slider::before {
 
 /* Sol */
 .icon.sun svg {
-  color: #FFA500;
+  color: #F59E0B;
 }
 
 /* Lua */
 .icon.moon svg {
-  color: #403f3f;
+  color: #6B7280;
 }
 
 .sun {
