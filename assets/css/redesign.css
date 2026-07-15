@@ -206,8 +206,9 @@ body.sidebar-collapsed .main-wrapper {
   transition: background var(--transition-base);
 }
 
+
 .nav-category.active {
-  background: var(--sidebar-active);
+  background: transparent;
 }
 
 .nav-category-header {
@@ -336,8 +337,12 @@ body.sidebar-collapsed .main-wrapper {
 
 .nav-subitem.active {
   color: var(--sidebar-text);
-  background: var(--sidebar-active);
+  background: #E8EEF5; /* Cinza ultra suave no modo claro */
   font-weight: 500;
+}
+
+.dark .nav-subitem.active {
+  background: rgba(255, 255, 255, 0.04); /* Cinza ultra suave no modo escuro */
 }
 
 .nav-subitem.active::before {

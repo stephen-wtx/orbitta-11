@@ -2,34 +2,6 @@
    CATEGORIAS PRINCIPAIS (Dashboard)
    ========================================================= */
 
-const categorias = [
-  {
-    titulo: "Design & Inspiração",
-    itens: [
-      {
-        nome: "Pinterest",
-        url: "https://www.pinterest.com",
-        dominio: "pinterest.com"
-      },
-      {
-        nome: "Behance",
-        url: "https://www.behance.net",
-        dominio: "behance.net"
-      },
-      {
-        nome: "Dribbble",
-        url: "https://dribbble.com",
-        dominio: "dribbble.com"
-      },
-      {
-        nome: "Land-Book",
-        url: "https://land-book.com",
-        dominio: "land-book.com"
-      }
-    ]
-  }
-];
-
 
 
 const design = {
@@ -59,6 +31,13 @@ const design = {
     { nome: "Bootstrap Icons", url: "https://icons.getbootstrap.com/" }
 
   ],
+
+  "inspiracao": [
+    { nome: "Pinterest", url: "https://www.pinterest.com" },
+    { nome: "Behance", url: "https://www.behance.net" },
+    { nome: "Dribbble", url: "https://dribbble.com" },
+    { nome: "Land-Book", url: "https://land-book.com" }
+  ]
 
 };
 
@@ -399,6 +378,11 @@ const dados = {
   "fontes": {
     titulo: "Fontes",
     ferramentas: design["fontes"]
+  },
+
+  "inspiracao": {
+    titulo: "Inspiração",
+    ferramentas: design["inspiracao"]
   },
 
   /* -------- IMAGENS -------- */
